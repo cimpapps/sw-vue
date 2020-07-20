@@ -3,12 +3,9 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import GridComponent from "@/components/shared/DataTableComponent.vue";
-import axios from 'axios';
-import VueAxios from "vue-axios";
 
 Vue.config.productionTip = false;
 
-Vue.use(VueAxios, axios);
 
 new Vue({
   router,
@@ -16,5 +13,4 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
-export default axios;
 

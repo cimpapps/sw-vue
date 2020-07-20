@@ -1,9 +1,10 @@
 import {Component, Vue} from "vue-property-decorator";
 import DataTableComponent from "@/components/shared/DataTableComponent.vue";
-import {Character} from "@/components/sw-people/character";
+import {SwCharacterModel} from "@/store/sw-characters/sw.character.model";
 import {ColumnDefinition} from "@/components/shared/column-definition";
 import swColumnDefinitionService from "@/services/sw-column-definition.service";
 import swApiService from "@/services/sw-api.service";
+import {swCharactersActions} from "@/store/sw-characters/actions/sw-characters.actions";
 
 @Component({
   name: 'sw-characters',
@@ -11,17 +12,14 @@ import swApiService from "@/services/sw-api.service";
 })
 export default class SwCharactersComponent extends Vue {
 
-  private characters: Character[] = [];
+  private characters: SwCharacterModel[] = [];
   private columnDefs!: ColumnDefinition [];
 
   beforeMount() {
     swColumnDefinitionService.getColumnDefinition()
       .subscribe(cd => this.columnDefs = cd);
 
-    swApiService.getSwCharacthers()
-      .subscribe(
-        result => this.characters = result,
-        err => console.error(err)
-      );
+    this.characters = this.$store.state.swCharactersStore.characters;
+    this.$store.dispatch(swCharactersActions);
   }
 }

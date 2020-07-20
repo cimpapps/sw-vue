@@ -1,4 +1,6 @@
-export interface Character {
+import {GetterTree, MutationTree, Store} from "vuex";
+
+export interface SwCharacterModel {
   name: string;
   skin_color: string;
   vehicles: any [];
@@ -12,3 +14,8 @@ export interface Character {
   mass: string;
   hair_color: string;
 }
+
+export interface SwCharacterState {
+  characters: SwCharacterModel [];
+}
+

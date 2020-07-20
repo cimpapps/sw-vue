@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{characters | json}}
     <data-table
     :columnDefs="columnDefs"
     :rowData="characters"
