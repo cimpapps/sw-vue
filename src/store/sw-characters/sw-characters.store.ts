@@ -6,7 +6,9 @@ import {actions} from "@/store/sw-characters/actions/sw-characters.actions";
 
 export const swCharactersStore = {
   state: {
-    characters: []
+    characters: [],
+    columns: [],
+    selectedColumns: []
   },
   getters,
   mutations,

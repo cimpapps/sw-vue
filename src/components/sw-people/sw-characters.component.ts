@@ -1,13 +1,15 @@
 import {Component, Vue} from "vue-property-decorator";
 import DataTableComponent from "@/components/shared/DataTableComponent.vue";
-import {SwCharacterModel} from "@/store/sw-characters/sw.character.model";
-import {ColumnDefinition} from "@/components/shared/column-definition";
-import swColumnDefinitionService from "@/services/sw-column-definition.service";
+import {ColumnDefinition, SwCharacterModel} from "@/store/sw-characters/sw.character.model";
 import {SwCharactersFacade} from "@/store/sw-characters/sw-characters.facade";
+import DropdownComponent from "@/components/shared/dropdown/DropdownComponent.vue";
 
 @Component({
   name: 'sw-characters',
-  components: {'data-table': DataTableComponent},
+  components: {
+    'data-table': DataTableComponent,
+    DropdownComponent
+  },
 
 })
 export default class SwCharactersComponent extends Vue {
@@ -18,12 +20,16 @@ export default class SwCharactersComponent extends Vue {
     return this.swCharactersFacade.getAllSwCharacters();
   }
 
-  private columnDefs!: ColumnDefinition [];
+  get columns(): ColumnDefinition[] {
+    return this.swCharactersFacade.getColumns();
+  }
+
+  get selectedColumns(): ColumnDefinition [] {
+    return this.swCharactersFacade.getSelectedColumns();
+  }
 
   beforeMount() {
-    swColumnDefinitionService.getColumnDefinition()
-      .subscribe(cd => this.columnDefs = cd);
-
+    this.swCharactersFacade.fetchColumns();
     this.swCharactersFacade.fetchAllSwCharacters();
   }
 }

@@ -1,13 +1,12 @@
 import {Component, Prop, Vue} from "vue-property-decorator";
 import {AgGridVue} from "ag-grid-vue";
-import {ColumnDefinition} from "@/components/shared/column-definition";
 import DropdownComponent from "@/components/shared/dropdown/DropdownComponent.vue";
+import {ColumnDefinition} from "@/store/sw-characters/sw.character.model";
 
 @Component({
   name: 'data-table',
   components: {
-    AgGridVue,
-    DropdownComponent
+    AgGridVue
   }
 })
 export default class DataTableComponent extends Vue {
@@ -17,6 +16,7 @@ export default class DataTableComponent extends Vue {
 
   beforeMount() {
     console.log(this.rowData);
+    console.log(this.columnDefs);
   }
 
 }

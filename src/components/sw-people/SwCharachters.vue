@@ -1,7 +1,12 @@
 <template>
   <div>
+    <DropdownComponent data-app
+                       :columns="columns"
+                       :selectedColumns="selectedColumns">
+    </DropdownComponent>
+
     <data-table
-    :columnDefs="columnDefs"
+    :columnDefs="selectedColumns"
     :rowData="characters"
     >
     </data-table>
