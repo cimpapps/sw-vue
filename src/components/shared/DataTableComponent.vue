@@ -7,6 +7,7 @@
                  :rowData="rowData"
     >
     </ag-grid-vue>
+    <DropdownComponent></DropdownComponent>
   </div>
 </template>
 
