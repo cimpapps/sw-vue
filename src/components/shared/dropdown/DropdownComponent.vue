@@ -9,18 +9,22 @@
             v-on="on"
         >
           Dropdown
-          {{selectedColumns}}
         </v-btn>
       </template>
       <v-list>
-        <v-list-item
-            v-for="(item, index) in columns"
-            :key="index"
-        >
-          <v-checkbox v-model="selectedColumns" :label="item.headerName" :value="item.id"
-
-          ></v-checkbox>
-        </v-list-item>
+        <v-container fluid>
+          <v-list-item
+              v-for="(item, index) in columns"
+              :key="index"
+          >
+            <v-checkbox
+                v-model="test"
+                :label="item.headerName"
+                :value="item.id"
+                selected-color="red"
+            ></v-checkbox>
+          </v-list-item>
+        </v-container>
       </v-list>
     </v-menu>
   </div>
