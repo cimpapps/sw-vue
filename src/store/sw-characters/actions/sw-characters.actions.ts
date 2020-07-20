@@ -8,7 +8,7 @@ export const actions: SwCharactersActions = {
   getAllSwCharacters(context: Context) {
     swApiService.getSwCharacthers()
       .subscribe(characters => {
-        context.commit(getAllSwCharacterMutation, characters);
+          context.commit(getAllSwCharacterMutation, characters);
       });
   }
 }

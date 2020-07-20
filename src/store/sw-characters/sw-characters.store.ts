@@ -5,9 +5,9 @@ import {mutations} from "@/store/sw-characters/mutations/sw-characters.mutations
 import {actions} from "@/store/sw-characters/actions/sw-characters.actions";
 
 export const swCharactersStore = {
-  state: () =>  ({
+  state: {
     characters: []
-  }),
+  },
   getters,
   mutations,
   actions

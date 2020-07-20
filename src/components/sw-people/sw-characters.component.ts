@@ -8,18 +8,20 @@ import {swCharactersActions} from "@/store/sw-characters/actions/sw-characters.a
 
 @Component({
   name: 'sw-characters',
-  components: {'data-table': DataTableComponent}
+  components: {'data-table': DataTableComponent},
+
 })
 export default class SwCharactersComponent extends Vue {
+  get characters(): SwCharacterModel[] {
+    return this.$store.state.swCharactersStore.characters;
+  }
 
-  private characters: SwCharacterModel[] = [];
   private columnDefs!: ColumnDefinition [];
 
   beforeMount() {
     swColumnDefinitionService.getColumnDefinition()
       .subscribe(cd => this.columnDefs = cd);
 
-    this.characters = this.$store.state.swCharactersStore.characters;
     this.$store.dispatch(swCharactersActions);
   }
 }
