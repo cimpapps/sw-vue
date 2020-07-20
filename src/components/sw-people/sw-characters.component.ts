@@ -3,8 +3,7 @@ import DataTableComponent from "@/components/shared/DataTableComponent.vue";
 import {SwCharacterModel} from "@/store/sw-characters/sw.character.model";
 import {ColumnDefinition} from "@/components/shared/column-definition";
 import swColumnDefinitionService from "@/services/sw-column-definition.service";
-import swApiService from "@/services/sw-api.service";
-import {swCharactersActions} from "@/store/sw-characters/actions/sw-characters.actions";
+import {SwCharactersFacade} from "@/store/sw-characters/sw-characters.facade";
 
 @Component({
   name: 'sw-characters',
@@ -12,8 +11,11 @@ import {swCharactersActions} from "@/store/sw-characters/actions/sw-characters.a
 
 })
 export default class SwCharactersComponent extends Vue {
+
+  private swCharactersFacade: SwCharactersFacade = new SwCharactersFacade();
+
   get characters(): SwCharacterModel[] {
-    return this.$store.state.swCharactersStore.characters;
+    return this.swCharactersFacade.getAllSwCharacters();
   }
 
   private columnDefs!: ColumnDefinition [];
@@ -22,6 +24,6 @@ export default class SwCharactersComponent extends Vue {
     swColumnDefinitionService.getColumnDefinition()
       .subscribe(cd => this.columnDefs = cd);
 
-    this.$store.dispatch(swCharactersActions);
+    this.swCharactersFacade.fetchAllSwCharacters();
   }
 }

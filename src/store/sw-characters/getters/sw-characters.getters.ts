@@ -7,6 +7,7 @@ import {SwCharactersGetters} from "@/store/sw-characters/getters/sw-characters.g
 
 export const getters: SwCharactersGetters = {
   getAllSwCharacters(state: SwCharacterState): SwCharacterModel[] {
+
     return state.characters;
   }
 }
