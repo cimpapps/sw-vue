@@ -7,7 +7,7 @@ import {map} from "rxjs/operators";
 
 export class SwApiService extends Vue{
 
-  getSwCharacthers(): Observable<Character []> {
+  public getSwCharacthers(): Observable<Character []> {
     const promise = this.axios.get("http://localhost:8989");
     return from(promise)
       .pipe(

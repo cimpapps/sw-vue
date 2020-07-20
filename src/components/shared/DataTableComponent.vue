@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ag-grid-vue style="width: 500px; height: 300px;"
+    <ag-grid-vue style="width: 700px; height: 300px;"
                  class="ag-theme-alpine"
                  :columnDefs="columnDefs"
                  rowSelection="multiple"

@@ -3,6 +3,13 @@ import {Observable, of} from "rxjs";
 
 export class SwColumnDefinitionService {
 
+
+  public getColumnDefinition(): Observable<ColumnDefinition[]> {
+    return of(
+      this.COLUMN_DEFS
+    );
+  }
+
   private COLUMN_DEFS = [
     {
       headerName: 'Name', field: 'name', filter: true, sortable: true, checkboxSelection: true, resizable: true,
@@ -47,17 +54,11 @@ export class SwColumnDefinitionService {
       sortable: true,
       resizable: true,
       flex: 1,
-      minWidth: 100,
+      minWidth: 270,
       autoHeight: true,
       rowDrag: true
     }
   ]
-
-  getColumnDefinition(): Observable<ColumnDefinition[]> {
-    return of(
-      this.COLUMN_DEFS
-    );
-  }
 
 }
 
