@@ -8,7 +8,6 @@ export const swCharactersStore = {
   state: {
     characters: [],
     columns: [],
-    selectedColumns: []
   },
   getters,
   mutations,

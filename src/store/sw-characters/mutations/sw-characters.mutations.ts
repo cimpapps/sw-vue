@@ -14,11 +14,7 @@ export const mutations: SwCharacterMutations = {
 
   checkColumn(state: SwCharacterState, id: number) {
     let column = state.columns.find(col => col.id === id);
+    console.log(column);
     column!.hidden = !column!.hidden;
-    if (column!.hidden) {
-      state.selectedColumns = [...state.selectedColumns, column!];
-    } else {
-      state.selectedColumns = state.selectedColumns.filter(col => col.id !== id);
-    }
   }
 };

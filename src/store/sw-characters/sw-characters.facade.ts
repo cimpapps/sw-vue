@@ -21,10 +21,6 @@ export class SwCharactersFacade {
     return swCharactersStore.state.columns;
   }
 
-  public getSelectedColumns(): ColumnDefinition [] {
-    return swCharactersStore.state.selectedColumns;
-  }
-
   public checkColumn(id: number) {
     store.dispatch(ACTION_TYPES.checkColumnAction, id);
   }

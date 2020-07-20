@@ -18,10 +18,11 @@
               :key="index"
           >
             <v-checkbox
-                v-model="test"
+                :v-model="selected"
                 :label="item.headerName"
                 :value="item.id"
                 selected-color="red"
+                @click="checkElement(item.id)"
             ></v-checkbox>
           </v-list-item>
         </v-container>

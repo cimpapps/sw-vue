@@ -35,7 +35,6 @@ export interface ColumnDefinition {
 export interface SwCharacterState {
   characters: SwCharacterModel [];
   columns: ColumnDefinition [];
-  selectedColumns: ColumnDefinition[];
 }
 
 

@@ -2,12 +2,14 @@
   <div>
     <DropdownComponent data-app
                        :columns="columns"
-                       :selectedColumns="selectedColumns">
+                       :selectedColumns="selectedColumns"
+                       @onCheckedDropdown="checkElement"
+    >
     </DropdownComponent>
 
     <data-table
-    :columnDefs="selectedColumns"
-    :rowData="characters"
+        :columnDefs="selectedColumns"
+        :rowData="characters"
     >
     </data-table>
   </div>

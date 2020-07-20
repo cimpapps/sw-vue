@@ -25,11 +25,16 @@ export default class SwCharactersComponent extends Vue {
   }
 
   get selectedColumns(): ColumnDefinition [] {
-    return this.swCharactersFacade.getSelectedColumns();
+    return this.swCharactersFacade.getColumns().filter(col => !col.hidden);
   }
 
   beforeMount() {
     this.swCharactersFacade.fetchColumns();
     this.swCharactersFacade.fetchAllSwCharacters();
+  }
+
+  public checkElement(id: number) {
+    console.log(id);
+    this.swCharactersFacade.checkColumn(id);
   }
 }

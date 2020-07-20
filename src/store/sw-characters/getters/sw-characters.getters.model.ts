@@ -6,6 +6,4 @@ export interface SwCharactersGetters extends GetterTree<SwCharacterState, SwChar
   getAllSwCharacters(this: Store<SwCharacterState>, state: SwCharacterState): SwCharacterModel [];
 
   getColumns(this: Store<SwCharacterState>, state: SwCharacterState): ColumnDefinition[];
-
-  getSelectedColumns(state: SwCharacterState): ColumnDefinition[];
 }

@@ -6,6 +6,15 @@ import {ColumnDefinition} from "@/store/sw-characters/sw.character.model";
 export default class DropdownComponent extends Vue {
 
   @Prop() private columns!: ColumnDefinition [];
-  @Prop() private selectedColumns!: ColumnDefinition[];
+  private selected = this.getSelected();
+  public checkElement(id: number) {
+    console.log(this.selected);
+    this.$emit('onCheckedDropdown', id);
+  }
+
+  getSelected() {
+    return this.columns.filter(col => !col.hidden)
+      .map(col => col.id);
+  }
 
 }

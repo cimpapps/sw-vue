@@ -66,7 +66,7 @@ export class SwColumnDefinitionService {
       minWidth: 270,
       autoHeight: true,
       rowDrag: true,
-      hidden: true
+      hidden: false
     }
   ]
 

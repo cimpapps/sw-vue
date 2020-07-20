@@ -16,9 +16,6 @@ export const getters: SwCharactersGetters = {
     return state.columns;
   },
 
-  getSelectedColumns(state: SwCharacterState): ColumnDefinition[] {
-    return state.selectedColumns;
-  }
 
 }
 
