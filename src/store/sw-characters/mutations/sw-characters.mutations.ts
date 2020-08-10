@@ -1,11 +1,12 @@
 import {SwCharacterMutations} from "@/store/sw-characters/mutations/sw-characters.mutations.model";
-import {ColumnDefinition, SwCharacterModel, SwCharacterState} from "@/store/sw-characters/sw.character.model";
+import {ColumnDefinition, OpenItem, SwCharacterModel, SwCharacterState} from "@/store/sw-characters/sw.character.model";
 
 export const mutations: SwCharacterMutations = {
   getAllSwCharacters(state: SwCharacterState, characters: SwCharacterModel[]) {
     state.characters = [
       {
         "skin_color": "fair",
+        id:1,
         "name": "Luke Skywalker",
         "vehicles": [
           "http://swapi.dev/api/vehicles/14/",
@@ -19,10 +20,13 @@ export const mutations: SwCharacterMutations = {
         "height": "172",
         "gender": "male",
         "mass": "77",
-        "hair_color": "blond"
+        "hair_color": "blond",
+        "fullWidth": true
+
       },
       {
         "skin_color": "gold",
+        id:2,
         "name": "C-3PO",
         "vehicles": [],
         "species": [
@@ -41,6 +45,7 @@ export const mutations: SwCharacterMutations = {
       {
         "skin_color": "white, blue",
         "name": "R2-D2",
+        id:3,
         "vehicles": [],
         "species": [
           "http://swapi.dev/api/species/2/"
@@ -57,6 +62,7 @@ export const mutations: SwCharacterMutations = {
       {
         "skin_color": "white",
         "name": "Darth Vader",
+        id:3,
         "vehicles": [],
         "species": [],
         "edited": "2014-12-20T21:17:50.313+0000",
@@ -71,6 +77,7 @@ export const mutations: SwCharacterMutations = {
       {
         "skin_color": "light",
         "name": "Leia Organa",
+        id:4,
         "vehicles": [
           "http://swapi.dev/api/vehicles/30/"
         ],
@@ -87,6 +94,7 @@ export const mutations: SwCharacterMutations = {
       {
         "skin_color": "light",
         "name": "Owen Lars",
+        id:5,
         "vehicles": [],
         "species": [],
         "edited": "2014-12-20T21:17:50.317+0000",
@@ -101,6 +109,7 @@ export const mutations: SwCharacterMutations = {
       {
         "skin_color": "light",
         "name": "Beru Whitesun lars",
+        id:6,
         "vehicles": [],
         "species": [],
         "edited": "2014-12-20T21:17:50.319+0000",
@@ -115,6 +124,7 @@ export const mutations: SwCharacterMutations = {
       {
         "skin_color": "white, red",
         "name": "R5-D4",
+        id:7,
         "vehicles": [],
         "species": [
           "http://swapi.dev/api/species/2/"
@@ -131,6 +141,7 @@ export const mutations: SwCharacterMutations = {
       {
         "skin_color": "light",
         "name": "Biggs Darklighter",
+        id:8,
         "vehicles": [],
         "species": [],
         "edited": "2014-12-20T21:17:50.323+0000",
@@ -144,6 +155,7 @@ export const mutations: SwCharacterMutations = {
       },
       {
         "skin_color": "fair",
+        id:9,
         "name": "Obi-Wan Kenobi",
         "vehicles": [
           "http://swapi.dev/api/vehicles/38/"
@@ -159,6 +171,7 @@ export const mutations: SwCharacterMutations = {
         "hair_color": "auburn, white"
       }
     ];
+    state.rowData = state.characters
   },
 
   getColumns(state: SwCharacterState, columns: ColumnDefinition[]) {
@@ -185,5 +198,29 @@ export const mutations: SwCharacterMutations = {
     }
 
 
+  },
+
+  rowSelected(state: SwCharacterState, id: number) {
+    const initialElements = state.characters;
+
+    const newState : any[]= []
+
+    const openItem : OpenItem = {
+      id: id+1,
+      fullWidth: true
+    };
+
+    initialElements.forEach(elem => {
+      if(elem.id +1 === id +1){
+        openItem.id = id
+        newState.push(openItem)
+      }else if(elem.id < id){
+        newState.push(elem)
+      }else {
+        newState.push({...elem, id: elem.id +1})
+      }
+    })
+
+    state.rowData = newState;
   }
 };

@@ -38,4 +38,9 @@ export default class SwCharactersComponent extends Vue {
     this.swCharactersFacade.checkColumn(id);
   }
 
+  rowSelected (id : number){
+    console.log('selectedRow', id);
+    this.swCharactersFacade.rowSelected(id);
+  }
+
 }

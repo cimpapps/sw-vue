@@ -16,6 +16,15 @@ export default class DataTableComponent extends Vue {
 
   private columns : any[] = [];
 
+  private rowSelection = null;
+
+  private gridOptions = {};
+
+  private gridApi = {};
+
+  private isFullWidthCell= null;
+  private fullWidthCellRenderer= null;
+
   private  icons= {
       columnRemoveFromGroup: '<i class="fa fa-remove"/>',
       filter: '<i class="fa fa-filter"/>',
@@ -26,7 +35,7 @@ export default class DataTableComponent extends Vue {
     }
 
   beforeMount() {
-    console.log('test', this.rowData)
+    this.gridOptions = {};
 
     this.columns = this.columnDefs.map(data =>{
       return {
@@ -38,10 +47,43 @@ export default class DataTableComponent extends Vue {
         sortable: true
       }
     })
+
+    this.updateCellFullWidth();
   }
 
-  doSomenthing(){
-    console.log('helooo')
+  updated(){
+    //this.updateCellFullWidth()
+    console.log('rowDataupdated', this.rowData)
+  }
+
+
+  updateCellFullWidth(){
+    this.isFullWidthCell = (rowData) => {
+      console.log('rowData', rowData)
+      return rowData.data.fullWidth
+    }
+
+    this.fullWidthCellRenderer = (params) =>{
+      var eDiv = document.createElement('div');
+
+
+      const message = "test";
+
+      eDiv.innerHTML =
+          '<div><button>Click</button> ' +
+          message +
+          '</div>';
+      const eButton = eDiv.querySelector('button');
+
+      eButton.addEventListener('click', function() {
+        alert('button clicked');
+      });
+      return eDiv.firstChild;
+    }
+  }
+
+  rowClicked(row : any){
+    this.$emit('onRowSelected', row.data.id)
   }
 
 

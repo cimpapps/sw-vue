@@ -8,6 +8,8 @@ export interface SwCharactersActions extends ActionTree<SwCharacterState, SwChar
   fetchColumns(this: Store<SwCharacterState>, context: Context): void;
 
   checkColumn(this: Store<SwCharacterState>, context: Context, id: number): void;
+
+  rowSelected(this: Store<SwCharacterState>, context: Context, id: number): void;
 }
 
 export type Context = ActionContext<SwCharacterState, SwCharacterState>
@@ -15,5 +17,6 @@ export type Context = ActionContext<SwCharacterState, SwCharacterState>
 export const ACTION_TYPES = {
   swCharactersActions: 'fetchAllSwCharacters',
   fetchColumnsAction: 'fetchColumns',
-  checkColumnAction: 'checkColumn'
+  checkColumnAction: 'checkColumn',
+  rowSelected : 'rowSelected'
 }

@@ -22,5 +22,9 @@ export const actions: SwCharactersActions = {
 
   checkColumn(context: Context, id: number) {
     context.commit(MUTATION_TYPES.checkColumnMutation, id);
+  },
+
+  rowSelected(context: Context, id: number) {
+    context.commit(MUTATION_TYPES.rowSelected, id)
   }
 }

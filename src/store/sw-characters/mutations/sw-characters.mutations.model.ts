@@ -9,11 +9,14 @@ export interface SwCharacterMutations extends MutationTree<SwCharacterState> {
   getColumns(this: Store<SwCharacterState>, state: SwCharacterState, columns: ColumnDefinition[]): void;
 
   checkColumn(state: SwCharacterState, id: number): void;
+
+  rowSelected(state: SwCharacterState, id: number): void;
 }
 
 export const MUTATION_TYPES={
   getAllSwCharacterMutation: 'getAllSwCharacters',
   getColumnsMutation: 'getColumns',
-  checkColumnMutation: 'checkColumn'
+  checkColumnMutation: 'checkColumn',
+  rowSelected: 'rowSelected'
 }
 

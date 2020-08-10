@@ -1,4 +1,5 @@
 export interface SwCharacterModel {
+  id: number;
   name: string;
   skin_color: string;
   vehicles: any [];
@@ -10,6 +11,7 @@ export interface SwCharacterModel {
   height: string;
   gender: string;
   mass: string;
+  fullWidth?: boolean;
   hair_color: string;
 }
 
@@ -32,11 +34,16 @@ export interface ColumnDefinition {
   hidden: boolean;
 }
 
+export interface OpenItem {
+  id: number;
+  fullWidth : true
+}
+
 export interface SwCharacterState {
   characters: SwCharacterModel [];
   columns: ColumnDefinition [];
   selectedColumns: ColumnDefinition[];
-
+  rowData : any[]
 }
 
 

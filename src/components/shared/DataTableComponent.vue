@@ -7,7 +7,12 @@
                  :rowData="rowData"
                  :icons = icons
                  :pagination = true
-                 :gridOptions="gridOptions"
+                 :gridOptions = "gridOptions"
+                 :isFullWidthCell="isFullWidthCell"
+                 :fullWidthCellRenderer="fullWidthCellRenderer"
+                 @rowClicked="rowClicked($event)"
+
+
     >
     </ag-grid-vue>
   </div>

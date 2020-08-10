@@ -9,6 +9,7 @@ export const swCharactersStore = {
     characters: [],
     columns: [],
     selectedColumns: [],
+    rowData: []
   },
   getters,
   mutations,

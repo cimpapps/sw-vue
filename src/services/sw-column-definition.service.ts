@@ -80,7 +80,7 @@ export class SwColumnDefinitionService {
       minWidth: 120,
       rowDrag: true,
       floatingFilter : true,
-      hide: false
+      hide: false,
     },
     {
       colId: 5,

@@ -13,8 +13,8 @@ export class SwCharactersFacade {
     store.dispatch(ACTION_TYPES.fetchColumnsAction)
   }
 
-  public getAllSwCharacters(): SwCharacterModel [] {
-    return swCharactersStore.state.characters;
+  public getAllSwCharacters(): any [] {
+    return swCharactersStore.state.rowData;
   }
 
   public getColumns(): ColumnDefinition [] {
@@ -23,6 +23,10 @@ export class SwCharactersFacade {
 
   public checkColumn(id: number) {
     store.dispatch(ACTION_TYPES.checkColumnAction, id);
+  }
+
+  rowSelected (id: number){
+    store.dispatch(ACTION_TYPES.rowSelected, id);
   }
 
   getSelectedColumns() {

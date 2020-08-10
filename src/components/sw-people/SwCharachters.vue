@@ -6,10 +6,11 @@
                        v-on:onCheckedDropdown="checkElement($event)"
     >
     </DropdownComponent>
-
+{{characters | json}}
     <data-table
         :columnDefs="selectedColumns"
         :rowData="characters"
+        v-on:onRowSelected="rowSelected($event)"
     >
     </data-table>
   </div>
