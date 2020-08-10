@@ -16,6 +16,11 @@ export default class SwCharactersComponent extends Vue {
 
   private swCharactersFacade: SwCharactersFacade = new SwCharactersFacade();
 
+  beforeMount() {
+    this.swCharactersFacade.fetchColumns();
+    this.swCharactersFacade.fetchAllSwCharacters();
+  }
+
   get characters(): SwCharacterModel[] {
     return this.swCharactersFacade.getAllSwCharacters();
   }
@@ -25,16 +30,12 @@ export default class SwCharactersComponent extends Vue {
   }
 
   get selectedColumns(): ColumnDefinition [] {
-    return this.swCharactersFacade.getColumns().filter(col => !col.hidden);
-  }
-
-  beforeMount() {
-    this.swCharactersFacade.fetchColumns();
-    this.swCharactersFacade.fetchAllSwCharacters();
+    return this.swCharactersFacade.getSelectedColumns();
   }
 
   public checkElement(id: number) {
     console.log(id);
     this.swCharactersFacade.checkColumn(id);
   }
+
 }

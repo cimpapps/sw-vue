@@ -25,5 +25,8 @@ export class SwCharactersFacade {
     store.dispatch(ACTION_TYPES.checkColumnAction, id);
   }
 
+  getSelectedColumns() {
+    return swCharactersStore.state.selectedColumns;
+  }
 }
 

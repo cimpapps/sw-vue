@@ -16,7 +16,14 @@ export default class DataTableComponent extends Vue {
 
   beforeMount() {
     console.log(this.rowData);
-    console.log(this.columnDefs);
+    console.log(this.columnDefs, "column defs");
+
   }
+
+  updated() {
+    console.log(this.columnDefs, "column defs");
+  }
+
+
 
 }

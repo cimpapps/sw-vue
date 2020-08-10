@@ -15,6 +15,18 @@ export const mutations: SwCharacterMutations = {
   checkColumn(state: SwCharacterState, id: number) {
     let column = state.columns.find(col => col.id === id);
     console.log(column);
-    column!.hidden = !column!.hidden;
+    debugger
+    if (column!.hidden) {
+      state.selectedColumns = [...state.selectedColumns, column!];
+      console.log(state.selectedColumns, "column is hidden");
+      state.columns = [... state.columns.filter(col => col.id !== id), {...column, hidden : false}]
+    } else {
+      state.selectedColumns = state.selectedColumns.filter(col => col.id !== id);
+      console.log(state.selectedColumns, "column is visible");
+      state.columns = [... state.columns.filter(col => col.id !== id), {...column, hidden: true}]
+
+    }
+
+
   }
 };

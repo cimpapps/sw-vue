@@ -3,7 +3,7 @@
     <DropdownComponent data-app
                        :columns="columns"
                        :selectedColumns="selectedColumns"
-                       @onCheckedDropdown="checkElement"
+                       v-on:onCheckedDropdown="checkElement($event)"
     >
     </DropdownComponent>
 
