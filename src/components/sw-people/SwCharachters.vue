@@ -1,9 +1,15 @@
 <template>
   <div>
-    {{characters | json}}
+    <DropdownComponent data-app
+                       :columns="columns"
+                       :selectedColumns="selectedColumns"
+                       v-on:onCheckedDropdown="checkElement($event)"
+    >
+    </DropdownComponent>
+
     <data-table
-    :columnDefs="columnDefs"
-    :rowData="characters"
+        :columnDefs="selectedColumns"
+        :rowData="characters"
     >
     </data-table>
   </div>

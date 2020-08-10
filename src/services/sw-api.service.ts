@@ -1,4 +1,4 @@
-import {SwCharacterModel} from "@/store/sw-characters/sw.character.model";
+import {ColumnDefinition, SwCharacterModel} from "@/store/sw-characters/sw.character.model";
 import {Vue} from "vue-property-decorator";
 import {Observable, from, pipe} from "rxjs";
 import {map} from "rxjs/operators";
@@ -14,6 +14,7 @@ export class SwApiService {
         map(response => response.data as SwCharacterModel[])
       );
   }
+
 
 }
 const swApiService = new SwApiService();

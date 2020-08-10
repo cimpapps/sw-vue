@@ -1,10 +1,10 @@
-import {ColumnDefinition} from "@/components/shared/column-definition";
 import {Observable, of} from "rxjs";
+import {ColumnDefinition} from "@/store/sw-characters/sw.character.model";
 
 export class SwColumnDefinitionService {
 
 
-  public getColumnDefinition(): Observable<ColumnDefinition[]> {
+  public getColumnDefinitions(): Observable<ColumnDefinition[]> {
     return of(
       this.COLUMN_DEFS
     );
@@ -12,14 +12,17 @@ export class SwColumnDefinitionService {
 
   private COLUMN_DEFS = [
     {
+      id: 1,
       headerName: 'Name', field: 'name', filter: true, sortable: true, checkboxSelection: true, resizable: true,
       flex: 1,
       minWidth: 120,
       pinned: 'left',
-      lockPinned: true
+      lockPinned: true,
+      hidden: false
 
     },
     {
+      id: 2,
       headerName: 'Skin Color',
       field: 'skin_color',
       filter: true,
@@ -28,9 +31,11 @@ export class SwColumnDefinitionService {
       searchable: true,
       flex: 1,
       minWidth: 100,
-      autoHeight: true
+      autoHeight: true,
+      hidden: false
     },
     {
+      id: 3,
       headerName: 'Birth Year',
       field: 'birth_year',
       filter: true,
@@ -39,15 +44,19 @@ export class SwColumnDefinitionService {
       resizable: true,
       flex: 1,
       minWidth: 120,
-      lockPinned: true
+      lockPinned: true,
+      hidden: false
     },
     {
+      id: 4,
       headerName: 'Height', field: 'height', filter: true, sortable: true, resizable: true,
       flex: 1,
       minWidth: 120,
-      rowDrag: true
+      rowDrag: true,
+      hidden: false
     },
     {
+      id: 5,
       headerName: 'Home World',
       field: 'homeworld',
       filter: true,
@@ -56,7 +65,8 @@ export class SwColumnDefinitionService {
       flex: 1,
       minWidth: 270,
       autoHeight: true,
-      rowDrag: true
+      rowDrag: true,
+      hidden: false
     }
   ]
 

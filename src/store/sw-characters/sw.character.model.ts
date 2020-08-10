@@ -1,5 +1,3 @@
-import {GetterTree, MutationTree, Store} from "vuex";
-
 export interface SwCharacterModel {
   name: string;
   skin_color: string;
@@ -15,7 +13,31 @@ export interface SwCharacterModel {
   hair_color: string;
 }
 
+export interface ColumnDefinition {
+  id: number;
+  headerName: string;
+  field: string;
+  filter?: boolean;
+  sortable?: boolean
+  checkboxSelection?: boolean;
+  resizable?: boolean;
+  flex?: number;
+  minWidth?: number;
+  searchable?: boolean;
+  lockPinned?: boolean;
+  pinned?: string;
+  autoHeight?: boolean;
+  chartDataType?: string | 'category' | 'series' | 'excluded';
+  rowDrag?: boolean;
+  hidden: boolean;
+}
+
 export interface SwCharacterState {
   characters: SwCharacterModel [];
+  columns: ColumnDefinition [];
+  selectedColumns: ColumnDefinition[];
+
 }
+
+
 
