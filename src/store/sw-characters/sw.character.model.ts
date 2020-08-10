@@ -14,7 +14,7 @@ export interface SwCharacterModel {
 }
 
 export interface ColumnDefinition {
-  id: number;
+  colId: number;
   headerName: string;
   field: string;
   filter?: boolean;

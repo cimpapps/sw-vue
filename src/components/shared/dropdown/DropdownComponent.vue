@@ -7,8 +7,6 @@
             :key="index"
         >
           <v-checkbox
-              v.if='item.hasOwnProperty("hidden")'
-              v-model="!item.hidden"
               :label="item.headerName"
               :value="item.id"
               selected-color="red"
@@ -26,7 +24,17 @@
       </template>
       <v-list>
         <v-container fluid>
-
+          <v-list-item
+                  v-for="(item, index) in columns"
+                  :key="index"
+          >
+            <v-checkbox
+                    :label="item.headerName"
+                    :value="item.id"
+                    selected-color="red"
+                    @click="checkElement(item.id)"
+            ></v-checkbox>
+          </v-list-item>
         </v-container>
       </v-list>
     </v-menu>

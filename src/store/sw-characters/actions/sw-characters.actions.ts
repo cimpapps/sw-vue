@@ -6,10 +6,11 @@ import {MUTATION_TYPES} from "@/store/sw-characters/mutations/sw-characters.muta
 
 export const actions: SwCharactersActions = {
   fetchAllSwCharacters(context: Context) {
-    swApiService.getSwCharacthers()
-      .subscribe(characters => {
-        context.commit(MUTATION_TYPES.getAllSwCharacterMutation, characters);
-      });
+    context.commit(MUTATION_TYPES.getAllSwCharacterMutation, []);
+    // swApiService.getSwCharacthers()
+    //   .subscribe(characters => {
+    //
+    //   });
   },
 
   fetchColumns(context: Context) {

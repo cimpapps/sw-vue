@@ -12,30 +12,30 @@ export class SwColumnDefinitionService {
 
   private COLUMN_DEFS = [
     {
-      id: 1,
+      colId: 1,
       headerName: 'Name', field: 'name', filter: true, sortable: true, checkboxSelection: true, resizable: true,
       flex: 1,
       minWidth: 120,
       pinned: 'left',
       lockPinned: true,
-      hidden: false
+      hide: false
 
     },
     {
-      id: 2,
+      colId: 2,
       headerName: 'Skin Color',
       field: 'skin_color',
       filter: true,
       sortable: true,
       resizable: true,
-      searchable: true,
       flex: 1,
       minWidth: 100,
       autoHeight: true,
-      hidden: false
+      hide: false,
+      floatingFilter: true
     },
     {
-      id: 3,
+      colId: 3,
       headerName: 'Birth Year',
       field: 'birth_year',
       filter: true,
@@ -45,28 +45,54 @@ export class SwColumnDefinitionService {
       flex: 1,
       minWidth: 120,
       lockPinned: true,
-      hidden: false
+      hide: false
     },
     {
-      id: 4,
+      colId: 4,
       headerName: 'Height', field: 'height', filter: true, sortable: true, resizable: true,
       flex: 1,
       minWidth: 120,
       rowDrag: true,
-      hidden: false
+    floatingFilter : true,
+      hide: false
     },
     {
-      id: 5,
-      headerName: 'Home World',
-      field: 'homeworld',
-      filter: true,
-      sortable: true,
-      resizable: true,
+      colId: 6,
+      headerName: 'Height', field: 'height', filter: true, sortable: true, resizable: true,
       flex: 1,
-      minWidth: 270,
+      minWidth: 120,
+      rowDrag: true,
+      floatingFilter : true,
+      hide: false
+    },
+    {
+      colId: 7,
+      headerName: 'Height', field: 'height', filter: true, sortable: true, resizable: true,
+      flex: 1,
+      minWidth: 120,
+      rowDrag: true,
+      floatingFilter : true,
+      hide: false
+    },{
+      colId: 9,
+      headerName: 'Height', field: 'height', filter: true, sortable: true, resizable: true,
+      flex: 1,
+      minWidth: 120,
+      rowDrag: true,
+      floatingFilter : true,
+      hide: false
+    },
+    {
+      colId: 5,
+      headerName: '+',
+      field: 'homeworld',
+      resizable: false,
+      flex: 1,
+      maxWidth: 40,
       autoHeight: true,
       rowDrag: true,
-      hidden: false
+      hide: false,
+      pinned: 'right',
     }
   ]
 
