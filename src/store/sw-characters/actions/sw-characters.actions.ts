@@ -25,6 +25,6 @@ export const actions: SwCharactersActions = {
   },
 
   rowSelected(context: Context, id: number) {
-    context.commit(MUTATION_TYPES.rowSelected, id)
+    context.commit(MUTATION_TYPES.rowSelected, id);
   }
 }

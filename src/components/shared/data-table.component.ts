@@ -1,7 +1,7 @@
 import {Component, Prop, Vue} from "vue-property-decorator";
 import {AgGridVue} from "ag-grid-vue";
 import DropdownComponent from "@/components/shared/dropdown/DropdownComponent.vue";
-import {ColumnDefinition} from "@/store/sw-characters/sw.character.model";
+import {ColumnDefinition, OpenedItem} from "@/store/sw-characters/sw.character.model";
 
 @Component({
   name: 'data-table',
@@ -12,6 +12,9 @@ import {ColumnDefinition} from "@/store/sw-characters/sw.character.model";
 export default class DataTableComponent extends Vue {
 
   @Prop() private columnDefs!: ColumnDefinition[];
+
+  @Prop() openItem : OpenedItem = {};
+
   @Prop() private rowData!: any [];
 
   private columns : any[] = [];
@@ -67,7 +70,7 @@ export default class DataTableComponent extends Vue {
       var eDiv = document.createElement('div');
 
 
-      const message = "test";
+      const message = `test ${this.openItem}`;
 
       eDiv.innerHTML =
           '<div><button>Click</button> ' +

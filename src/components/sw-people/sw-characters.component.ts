@@ -16,6 +16,8 @@ export default class SwCharactersComponent extends Vue {
 
   private swCharactersFacade: SwCharactersFacade = new SwCharactersFacade();
 
+  openedItem = {}
+
   beforeMount() {
     this.swCharactersFacade.fetchColumns();
     this.swCharactersFacade.fetchAllSwCharacters();

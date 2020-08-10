@@ -10,6 +10,7 @@
     <data-table
         :columnDefs="selectedColumns"
         :rowData="characters"
+        :infoOpendItems = "openedItem"
         v-on:onRowSelected="rowSelected($event)"
     >
     </data-table>

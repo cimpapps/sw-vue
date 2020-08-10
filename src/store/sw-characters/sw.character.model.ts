@@ -43,7 +43,12 @@ export interface SwCharacterState {
   characters: SwCharacterModel [];
   columns: ColumnDefinition [];
   selectedColumns: ColumnDefinition[];
-  rowData : any[]
+  rowData : any[],
+  openedItem : OpenedItem
+}
+
+export interface OpenedItem {
+
 }
 
 

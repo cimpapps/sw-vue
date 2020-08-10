@@ -222,5 +222,8 @@ export const mutations: SwCharacterMutations = {
     })
 
     state.rowData = newState;
+    state.openedItem = {
+      //backend values
+    }
   }
 };
